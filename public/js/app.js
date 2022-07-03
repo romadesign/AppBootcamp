@@ -5452,7 +5452,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       title: '',
       url: '',
-      testimony: [],
+      testimony: [{
+        title_testimony: 'test title',
+        description_testimony: '',
+        picture_testimony: '' //picture_testimony: 'https://images.vexels.com/media/users/3/179969/isolated/lists/da44cc8348af09adfef0b0fa2fe249ce-imagen-de-mariquita-plana.png',
+
+      }],
       inscription: {}
     };
   },
@@ -5530,6 +5535,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ViewCourseDetails",
   data: function data() {
@@ -5576,7 +5583,6 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   mounted: function mounted() {
-    //do something after mounting vue instance
     console.log(this.courses);
   },
   props: {
@@ -5625,6 +5631,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Inscriptions",
+  data: function data() {
+    return {};
+  },
   props: {
     inscription: {
       type: Object,
@@ -5777,34 +5786,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//import FieldTestimonyImage from './FieldTestimonyImage.vue'
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Testimonys",
+  components: {//FieldTestimonyImage,
+  },
   props: {
     testimony: {
       type: Array,
-      //default: () => '',
-      "default": function _default() {
-        return {
-          title_testimony: '',
-          description_testimony: ''
-        };
-      }
+      required: true
     }
   },
   data: function data() {
     return {};
   },
+  mounted: function mounted() {
+    //do something after mounting vue instance
+    console.log();
+  },
   methods: {
     add: function add() {
       this.testimony.push({
         title_testimony: this.title_testimony,
-        description_testimony: this.description_testimony
+        description_testimony: this.description_testimony,
+        picture_testimony: this.picture_testimony
       });
     },
     remove: function remove(i) {
       this.testimony.splice(i, 1);
+    },
+    previewImage: function previewImage(event) {
+      var _this = this;
+
+      var input = event.target;
+
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          for (var i = 0; i < _this.testimony.length; i++) {
+            //Indicando que la imagen sea distitan
+            if (!_this.testimony[i].picture_testimony) {
+              _this.testimony[i].picture_testimony = e.target.result;
+            }
+          }
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
     }
-  }
+  } //<div class="file-upload-form">
+  //     Upload an image file:
+  //     <input type="file" @change="previewImage($event)" accept="image/*">
+  // </div>
+  // <div class="image-preview">
+  //   <img height="200px" width="200px" class="preview" :src="testimony[i].picture_testimony">
+  // </div>
+
 });
 
 /***/ }),
@@ -30255,6 +30304,8 @@ var render = function () {
     [
       _c("h1", [_vm._v(" " + _vm._s(_vm.course.title))]),
       _vm._v(" "),
+      _c("h1", [_vm._v(" " + _vm._s(_vm.course.url))]),
+      _vm._v(" "),
       _c("h1", [_vm._v(" " + _vm._s(_vm.course.id))]),
       _vm._v(" "),
       _vm._l(_vm.course.testimony, function (test, i) {
@@ -30265,6 +30316,8 @@ var render = function () {
             _c("h1", [_vm._v(" " + _vm._s(test.title_testimony))]),
             _vm._v(" "),
             _c("h1", [_vm._v(" " + _vm._s(test.description_testimony))]),
+            _vm._v(" "),
+            _c("img", { attrs: { src: test.picture_testimony, alt: "" } }),
           ]
         )
       }),
@@ -30330,7 +30383,7 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v(_vm._s(course.title))]
+              [_vm._v("Detalle")]
             ),
           ]),
         ]),
@@ -30665,6 +30718,33 @@ var render = function () {
                       },
                     },
                   }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mb-3" }, [
+                  _c("div", { staticClass: "file-upload-form" }, [
+                    _vm._v(
+                      "\n                     Upload an image file:\n                     "
+                    ),
+                    _c("input", {
+                      attrs: { type: "file", accept: "image/*" },
+                      on: {
+                        change: function ($event) {
+                          return _vm.previewImage($event)
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "image-preview" }, [
+                    _c("img", {
+                      staticClass: "preview",
+                      attrs: {
+                        height: "200px",
+                        width: "200px",
+                        src: _vm.testimony[i].picture_testimony,
+                      },
+                    }),
+                  ]),
                 ]),
               ]),
               _vm._v(" "),

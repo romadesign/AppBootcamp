@@ -8,8 +8,6 @@
                 <div class="card-body">
                     <h3 class="card-title text-capitalize">
                         {{$course->title}}
-                        <span>vue</span>
-
                     </h3>
                 </div>
             </div>

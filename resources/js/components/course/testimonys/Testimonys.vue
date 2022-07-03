@@ -15,6 +15,17 @@
                     <label for="description_testimony" class="form-label">Descripción</label>
                     <textarea id="description_testimony" class="form-control" v-model="testimony[i].description_testimony" rows="3"></textarea>
                 </div>
+
+                <div class="mb-3">
+                  <div class="file-upload-form">
+                     Upload an image file:
+                     <input type="file" @change="previewImage($event)" accept="image/*">
+                 </div>
+                 <div class="image-preview">
+                   <img height="200px" width="200px" class="preview" :src="testimony[i].picture_testimony">
+                 </div>
+                </div>
+
             </div>
             <button type="button" @click="remove(i)" class="btn btn-danger delete_button"> - </button>
         </div>
@@ -23,33 +34,70 @@
 </div>
 </template>
 <script>
+//import FieldTestimonyImage from './FieldTestimonyImage.vue'
+
 export default {
     name: "Testimonys",
+    components: {
+       //FieldTestimonyImage,
+    },
+
     props: {
         testimony: {
-            type: Array,
-            //default: () => '',
-            default: () => ({
-                title_testimony: '',
-                description_testimony: '',
-            }),
-        }
+          type: Array,
+          required: true,
+        },
     },
-    data: () => ({
 
-    }),
+    data() {
+      return {
+      }
+    },
+
+    mounted() {
+      //do something after mounting vue instance
+      console.log()
+    },
+
     methods: {
         add() {
             this.testimony.push({
                 title_testimony: this.title_testimony,
                 description_testimony: this.description_testimony,
+                picture_testimony: this.picture_testimony,
             })
-
         },
+
         remove(i) {
             this.testimony.splice(i, 1)
-        }
+        },
+
+        previewImage(event) {
+           var input = event.target;
+           if (input.files && input.files[0]) {
+               var reader = new FileReader();
+               reader.onload = (e) => {
+                 for (var i = 0; i < this.testimony.length; i++) {
+                   //Indicando que la imagen sea distitan
+                   if(!this.testimony[i].picture_testimony){
+                     this.testimony[i].picture_testimony = e.target.result;
+                   }
+                 }
+               }
+               reader.readAsDataURL(input.files[0]);
+           }
+       }
     }
+
+
+
+   //<div class="file-upload-form">
+  //     Upload an image file:
+  //     <input type="file" @change="previewImage($event)" accept="image/*">
+  // </div>
+  // <div class="image-preview">
+  //   <img height="200px" width="200px" class="preview" :src="testimony[i].picture_testimony">
+  // </div>
 }
 </script>
 <style scoped>

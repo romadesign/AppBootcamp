@@ -5,7 +5,7 @@
           <div class="card-body">
             <h5 class="card-title">{{course.title}}</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a @click="details(course.title)" class="btn btn-primary">{{course.title}}</a>
+            <a @click="details(course.title)" class="btn btn-primary">Detalle</a>
           </div>
         </div>
       </div>
@@ -18,7 +18,6 @@ export default {
 
   }),
   mounted() {
-    //do something after mounting vue instance
     console.log(this.courses)
   },
   props: {

@@ -32,7 +32,7 @@
                  </div>
                </Tab>
                <Tab title="Testimonios">
-                 <Testimonys :testimony="testimony"/>
+                 <Testimonys :testimony="testimony"  />
                </Tab>
                <Tab title="Inscripciones">
                  <Inscriptions :inscription="inscription" />
@@ -62,7 +62,12 @@ import Inscriptions from "./inscriptions/Inscriptions.vue";
         return {
           title: '',
           url: '',
-          testimony: [],
+          testimony:[{
+                title_testimony: 'test title',
+                description_testimony: '',
+                picture_testimony: '',
+                //picture_testimony: 'https://images.vexels.com/media/users/3/179969/isolated/lists/da44cc8348af09adfef0b0fa2fe249ce-imagen-de-mariquita-plana.png',
+              }],
           inscription: {},
         }
       },

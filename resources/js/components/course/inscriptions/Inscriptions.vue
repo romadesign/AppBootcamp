@@ -22,6 +22,10 @@
 <script>
 export default {
   name: "Inscriptions",
+  data() {
+    return {
+    }
+  },
   props: {
       inscription: {
           type: Object,
