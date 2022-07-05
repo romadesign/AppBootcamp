@@ -5802,6 +5802,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 //import FieldTestimonyImage from './FieldTestimonyImage.vue'
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Testimonys",
@@ -5829,6 +5830,9 @@ __webpack_require__.r(__webpack_exports__);
         sub_title_syllabus: this.sub_title_syllabus,
         sub_description_syllabus: this.sub_description_syllabus
       });
+    },
+    remove: function remove(s) {
+      this.subSilabus.splice(s, 1);
     }
   } //<div class="file-upload-form">
   //     Upload an image file:
@@ -31270,6 +31274,20 @@ var render = function () {
                   }),
                 ]),
               ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger delete_button",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.remove(s)
+                    },
+                  },
+                },
+                [_vm._v(" - ")]
+              ),
             ]
           )
         }),

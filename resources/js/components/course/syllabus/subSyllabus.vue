@@ -16,6 +16,7 @@
                     <textarea id="description_syllabus" class="form-control" v-model="subSilabus[s].sub_description_syllabus" rows="3"></textarea>
                 </div>
             </div>
+              <button type="button" @click="remove(s)" class="btn btn-danger delete_button"> - </button>
         </div>
     </div>
     <button type="button" @click="add()" class="btn btn-primary button-add"> Agrega un nuevo sub temario </button>
@@ -56,6 +57,9 @@ export default {
               sub_description_syllabus: this.sub_description_syllabus,
           })
       },
+      remove(s){
+        this.subSilabus.splice(s, 1)
+      }
     }
 
 
