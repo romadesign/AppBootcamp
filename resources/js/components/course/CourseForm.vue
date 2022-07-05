@@ -13,7 +13,10 @@
            </div>
           <div class="mb-3">
             <Tabs>
-               <Tab selected="true" title="Inicio">
+              <Tab selected="true" title="Temario">
+                <Syllabus :syllabus="syllabus"  />
+              </Tab>
+               <Tab  title="Inicio">
                  <div class="">
                    <label for="title" class="form-label">Title</label>
                    <input
@@ -37,6 +40,7 @@
                <Tab title="Inscripciones">
                  <Inscriptions :inscription="inscription" />
                </Tab>
+
             </Tabs>
         </div>
     </div>
@@ -49,6 +53,7 @@ import Tab from "./tabs/Tab.vue";
 
 import Testimonys from "./testimonys/Testimonys.vue";
 import Inscriptions from "./inscriptions/Inscriptions.vue";
+import Syllabus from "./syllabus/Syllabus.vue"
 
     export default {
       name: "course-form",
@@ -57,18 +62,29 @@ import Inscriptions from "./inscriptions/Inscriptions.vue";
          Tab,
          Testimonys,
          Inscriptions,
+         Syllabus,
       },
       data(){
         return {
           title: '',
           url: '',
           testimony:[{
-                title_testimony: 'test title',
-                description_testimony: '',
-                picture_testimony: '',
+            title_testimony: 'test title',
+            description_testimony: '',
+            picture_testimony: '',
                 //picture_testimony: 'https://images.vexels.com/media/users/3/179969/isolated/lists/da44cc8348af09adfef0b0fa2fe249ce-imagen-de-mariquita-plana.png',
-              }],
+          }],
           inscription: {},
+          syllabus: [
+            {
+              title_syllabus: '',
+              description_syllabus: '',
+              sub_syllabus: [{
+                sub_title_syllabus: '',
+                sub_description_syllabus: '',
+              }],
+            }
+          ],
         }
       },
       mounted() {
