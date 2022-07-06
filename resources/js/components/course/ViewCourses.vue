@@ -1,5 +1,6 @@
 <template>
   <div class="row">
+      {{courses}}
       <div class="col-sm-6" v-for="(course, c) in courses" :key="course.c">
         <div class="card" >
           <div class="card-body">

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('url');
             $table->json('testimony');
             $table->json('inscription');
+            $table->json('syllabus');
             $table->timestamps();
         });
     }

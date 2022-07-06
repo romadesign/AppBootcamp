@@ -14,11 +14,13 @@ class Course extends Model
       'url',
       'testimony',
       'inscription',
+      'syllabus',
     ];
 
     protected $casts = [
       'testimony' => 'array',
       'inscription' => 'array',
+      'syllabus' => 'array',
    ];
 
     public function user(){

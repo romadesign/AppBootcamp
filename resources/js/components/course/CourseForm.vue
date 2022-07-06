@@ -13,27 +13,69 @@
            </div>
           <div class="mb-3">
             <Tabs>
-              <Tab selected="true" title="Temario">
-                <Syllabus :syllabus="syllabus"  />
+              <Tab selected="true" title="Inicio">
+                <div class="">
+                  <label for="title" class="form-label">Title</label>
+                  <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Titulo del curso"
+                  v-model="title">
+                </div>
+                <div class="">
+                  <label for="url" class="form-label">Link</label>
+                  <input
+                  type="url"
+                  class="form-control"
+                  placeholder="www.google.com "
+                  v-model="url">
+                </div>
+                <div class="">
+                  <div class="">
+                    <h5>calendar</h5>
+                  </div>
+                  <div class="d-flex">
+                    <div class="w-100">
+                      <label for="duration" class="form-label">start</label>
+                      <input
+                      type="date"
+                      class="form-control"
+                      v-model="startCalendar">
+                    </div>
+                    <div class="w-100">
+                      <label for="duration" class="form-label">End</label>
+                      <input
+                      type="date"
+                      class="form-control"
+                      v-model="endCalendar">
+                    </div>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="">
+                    <h5>Time</h5>
+                  </div>
+                  <div class="d-flex">
+                    <div class="w-100">
+                      <label for="time" class="form-label">Start</label>
+                      <input
+                      type="time"
+                      class="form-control"
+                      v-model="startTime">
+                    </div>
+                    <div class="w-100">
+                      <label for="time" class="form-label">End</label>
+                      <input
+                      type="time"
+                      class="form-control"
+                      v-model="endTime">
+                    </div>
+                  </div>
+                </div>
+                <div class="">
+                    <Syllabus :syllabus="syllabus"  />
+                </div>
               </Tab>
-               <Tab  title="Inicio">
-                 <div class="">
-                   <label for="title" class="form-label">Title</label>
-                   <input
-                   type="text"
-                   class="form-control"
-                   placeholder="Titulo del curso"
-                   v-model="title">
-                 </div>
-                 <div class="">
-                   <label for="url" class="form-label">Link</label>
-                   <input
-                   type="url"
-                   class="form-control"
-                   placeholder="www.google.com "
-                   v-model="url">
-                 </div>
-               </Tab>
                <Tab title="Testimonios">
                  <Testimonys :testimony="testimony"  />
                </Tab>
@@ -99,6 +141,7 @@ import Syllabus from "./syllabus/Syllabus.vue"
               url: this.url,
               testimony: this.testimony,
               inscription: this.inscription,
+              syllabus: this.syllabus,
             })
             .then(function (response) {
               currentObj.output = response.data;

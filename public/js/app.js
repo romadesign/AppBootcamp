@@ -5440,6 +5440,48 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //componente tabs
 
 
@@ -5496,7 +5538,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   title: _this.title,
                   url: _this.url,
                   testimony: _this.testimony,
-                  inscription: _this.inscription
+                  inscription: _this.inscription,
+                  syllabus: _this.syllabus
                 }).then(function (response) {
                   currentObj.output = response.data;
                   console.log(currentObj.output);
@@ -5552,6 +5595,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ViewCourseDetails",
   data: function data() {
@@ -5579,6 +5633,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -5677,6 +5732,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _subSyllabus_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./subSyllabus.vue */ "./resources/js/components/course/syllabus/subSyllabus.vue");
+//
+//
 //
 //
 //
@@ -30661,14 +30718,7 @@ var render = function () {
         _c(
           "Tabs",
           [
-            _c(
-              "Tab",
-              { attrs: { selected: "true", title: "Temario" } },
-              [_c("Syllabus", { attrs: { syllabus: _vm.syllabus } })],
-              1
-            ),
-            _vm._v(" "),
-            _c("Tab", { attrs: { title: "Inicio" } }, [
+            _c("Tab", { attrs: { selected: "true", title: "Inicio" } }, [
               _c("div", {}, [
                 _c(
                   "label",
@@ -30728,6 +30778,145 @@ var render = function () {
                   },
                 }),
               ]),
+              _vm._v(" "),
+              _c("div", {}, [
+                _c("div", {}, [_c("h5", [_vm._v("calendar")])]),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex" }, [
+                  _c("div", { staticClass: "w-100" }, [
+                    _c(
+                      "label",
+                      { staticClass: "form-label", attrs: { for: "duration" } },
+                      [_vm._v("start")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.startCalendar,
+                          expression: "startCalendar",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "date" },
+                      domProps: { value: _vm.startCalendar },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.startCalendar = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-100" }, [
+                    _c(
+                      "label",
+                      { staticClass: "form-label", attrs: { for: "duration" } },
+                      [_vm._v("End")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.endCalendar,
+                          expression: "endCalendar",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "date" },
+                      domProps: { value: _vm.endCalendar },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.endCalendar = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", {}, [
+                _c("div", {}, [_c("h5", [_vm._v("Time")])]),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex" }, [
+                  _c("div", { staticClass: "w-100" }, [
+                    _c(
+                      "label",
+                      { staticClass: "form-label", attrs: { for: "time" } },
+                      [_vm._v("Start")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.startTime,
+                          expression: "startTime",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "time" },
+                      domProps: { value: _vm.startTime },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.startTime = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-100" }, [
+                    _c(
+                      "label",
+                      { staticClass: "form-label", attrs: { for: "time" } },
+                      [_vm._v("End")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.endTime,
+                          expression: "endTime",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "time" },
+                      domProps: { value: _vm.endTime },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.endTime = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {},
+                [_c("Syllabus", { attrs: { syllabus: _vm.syllabus } })],
+                1
+              ),
             ]),
             _vm._v(" "),
             _c(
@@ -30811,9 +31000,53 @@ var render = function () {
         _vm._v("  " + _vm._s(_vm.course.inscription.title_inscription)),
       ]),
       _vm._v(" "),
-      _c("span", [
-        _vm._v("  " + _vm._s(_vm.course.inscription.url_inscription)),
-      ]),
+      _c("span", [_vm._v("  " + _vm._s(_vm.course.inscription))]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("h3", [_vm._v("temario")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("  " + _vm._s(_vm.course.syllabus))]),
+      _vm._v(" "),
+      _vm._l(_vm.course.syllabus, function (tema, t) {
+        return _c(
+          "div",
+          { key: tema.t, staticClass: "p-2 content-testimony" },
+          [
+            _c("span", [_vm._v(" title: " + _vm._s(tema.title_syllabus))]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", [
+              _vm._v(" description:  " + _vm._s(tema.description_syllabus)),
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _vm._l(tema.sub_syllabus, function (sub, s) {
+              return _c("div", { key: sub.s }, [
+                _c("span", [
+                  _vm._v(
+                    " sub temario title: " + _vm._s(sub.sub_title_syllabus)
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v(
+                    " sub temario description: " +
+                      _vm._s(sub.sub_description_syllabus)
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("br"),
+              ])
+            }),
+          ],
+          2
+        )
+      }),
     ],
     2
   )
@@ -30844,37 +31077,40 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "row" },
-    _vm._l(_vm.courses, function (course, c) {
-      return _c("div", { key: course.c, staticClass: "col-sm-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [
-              _vm._v(_vm._s(course.title)),
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(
-                "With supporting text below as a natural lead-in to additional content."
-              ),
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function ($event) {
-                    return _vm.details(course.title)
+    [
+      _vm._v("\n    " + _vm._s(_vm.courses) + "\n    "),
+      _vm._l(_vm.courses, function (course, c) {
+        return _c("div", { key: course.c, staticClass: "col-sm-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(course.title)),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "With supporting text below as a natural lead-in to additional content."
+                ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-primary",
+                  on: {
+                    click: function ($event) {
+                      return _vm.details(course.title)
+                    },
                   },
                 },
-              },
-              [_vm._v("Detalle")]
-            ),
+                [_vm._v("Detalle")]
+              ),
+            ]),
           ]),
-        ]),
-      ])
-    }),
-    0
+        ])
+      }),
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -31012,21 +31248,19 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content_syllabus_principal " }, [
-    _c(
-      "div",
-      { staticClass: "card text-center" },
-      [
-        _c("div", { staticClass: "card p-2" }, [
-          _vm._v("\n            Agregar Temario\n        "),
-        ]),
-        _vm._v(" "),
+  return _c("div", { staticClass: "content_syllabus_principal" }, [
+    _c("div", { staticClass: "card p-2" }, [
+      _c("div", {}, [_vm._v("\n      Agregar temario\n    ")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-center " },
         _vm._l(_vm.syllabus, function (syllabu, i) {
           return _c(
             "div",
             { key: syllabu.i, staticClass: "p-2 content-syllabus" },
             [
-              _c("h4", [_vm._v("syllabus " + _vm._s(i + 1))]),
+              _c("h4", [_vm._v("Temario " + _vm._s(i + 1))]),
               _vm._v(" "),
               _c("div", {}, [
                 _c("div", { staticClass: "mb-3" }, [
@@ -31036,7 +31270,7 @@ var render = function () {
                       staticClass: "form-label",
                       attrs: { for: "title_syllabus" },
                     },
-                    [_vm._v("Nombre")]
+                    [_vm._v("Titulo")]
                   ),
                   _vm._v(" "),
                   _c("input", {
@@ -31109,7 +31343,7 @@ var render = function () {
                 _vm._v(" "),
                 _c(
                   "div",
-                  {},
+                  { staticClass: "card p-2" },
                   [
                     _c("subSyllabus", {
                       attrs: { subSilabus: _vm.syllabus[i].sub_syllabus },
@@ -31135,23 +31369,23 @@ var render = function () {
             ]
           )
         }),
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-primary button-add",
-        attrs: { type: "button" },
-        on: {
-          click: function ($event) {
-            return _vm.add()
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary button-add",
+          attrs: { type: "button" },
+          on: {
+            click: function ($event) {
+              return _vm.add()
+            },
           },
         },
-      },
-      [_vm._v(" Agrega un nuevo testimonio ")]
-    ),
+        [_vm._v(" Agrega un nuevo temario ")]
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -31180,10 +31414,10 @@ var render = function () {
   return _c("div", { staticClass: "content_syllabus_principal " }, [
     _c(
       "div",
-      { staticClass: "card text-center" },
+      {},
       [
-        _c("div", { staticClass: "card p-2" }, [
-          _vm._v("\n            Agregar  sub Temario\n        "),
+        _c("div", { staticClass: "p-2" }, [
+          _vm._v("\n            Agregar sub Temario\n        "),
         ]),
         _vm._v(" "),
         _vm._l(_vm.subSilabus, function (syllabu, s) {
@@ -31191,7 +31425,7 @@ var render = function () {
             "div",
             { key: syllabu.s, staticClass: "p-2 content-syllabus" },
             [
-              _c("h4", [_vm._v("sub syllabus " + _vm._s(s + 1))]),
+              _c("h4", [_vm._v("Sub temario " + _vm._s(s + 1))]),
               _vm._v(" "),
               _c("div", {}, [
                 _c("div", { staticClass: "mb-3" }, [
@@ -31201,7 +31435,7 @@ var render = function () {
                       staticClass: "form-label",
                       attrs: { for: "title_syllabus" },
                     },
-                    [_vm._v("Nombre")]
+                    [_vm._v("Sub titulo")]
                   ),
                   _vm._v(" "),
                   _c("input", {

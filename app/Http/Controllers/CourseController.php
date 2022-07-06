@@ -24,6 +24,7 @@ class CourseController extends Controller
       'url' => $request['url'],
       'testimony' => $request['testimony'],
       'inscription' => $request['inscription'],
+      'syllabus' => $request['syllabus'],
       //'inscription' => json_encode($request['inscription']),
     ]);
     return response("create $course->id");

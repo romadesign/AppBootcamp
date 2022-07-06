@@ -1,14 +1,14 @@
 <template>
 <div class="content_syllabus_principal ">
-    <div class="card text-center">
-        <div class="card p-2">
-            Agregar  sub Temario
+    <div class="">
+        <div class="p-2">
+            Agregar sub Temario
         </div>
         <div class="p-2 content-syllabus" v-for="(syllabu, s) in subSilabus" :key="syllabu.s">
-            <h4>sub syllabus {{ s+1 }}</h4>
+            <h4>Sub temario {{ s+1 }}</h4>
             <div class="">
                 <div class="mb-3">
-                    <label for="title_syllabus" class="form-label">Nombre</label>
+                    <label for="title_syllabus" class="form-label">Sub titulo</label>
                     <input type="text" id="title_syllabus" class="form-control" v-model="subSilabus[s].sub_title_syllabus" placeholder="Nombre">
                 </div>
                 <div class="mb-3">

@@ -1,14 +1,15 @@
 <template>
-<div class="content_syllabus_principal ">
-    <div class="card text-center">
-        <div class="card p-2">
-            Agregar Temario
-        </div>
+<div class="content_syllabus_principal">
+    <div class="card p-2">
+    <div class="">
+      Agregar temario
+    </div>
+    <div class="text-center ">
         <div class="p-2 content-syllabus" v-for="(syllabu, i) in syllabus" :key="syllabu.i">
-            <h4>syllabus {{ i+1 }}</h4>
+            <h4>Temario {{ i+1 }}</h4>
             <div class="">
                 <div class="mb-3">
-                    <label for="title_syllabus" class="form-label">Nombre</label>
+                    <label for="title_syllabus" class="form-label">Titulo</label>
                     <input type="text" id="title_syllabus" class="form-control" v-model="syllabus[i].title_syllabus" placeholder="Nombre">
                 </div>
                 <div class="mb-3">
@@ -30,14 +31,15 @@
                 <button type="button" @click="addSubSyllabus()" class="btn btn-primary button-add"> Agrega un nuevo sub temario </button>
                 -->
 
-                <div class="">
+                <div class="card p-2">
                   <subSyllabus :subSilabus="syllabus[i].sub_syllabus" />
                 </div>
             </div>
             <button type="button" @click="remove(i)" class="btn btn-danger delete_button"> - </button>
         </div>
     </div>
-    <button type="button" @click="add()" class="btn btn-primary button-add"> Agrega un nuevo testimonio </button>
+    <button type="button" @click="add()" class="btn btn-primary button-add"> Agrega un nuevo temario </button>
+  </div>
 </div>
 </template>
 <script>
