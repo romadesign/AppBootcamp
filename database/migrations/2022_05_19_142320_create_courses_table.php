@@ -21,6 +21,7 @@ return new class extends Migration
             $table->json('testimony');
             $table->json('inscription');
             $table->json('syllabus');
+            $table->json('calendar');
             $table->timestamps();
         });
     }

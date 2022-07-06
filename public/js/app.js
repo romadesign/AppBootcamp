@@ -5386,6 +5386,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _testimonys_Testimonys_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./testimonys/Testimonys.vue */ "./resources/js/components/course/testimonys/Testimonys.vue");
 /* harmony import */ var _inscriptions_Inscriptions_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./inscriptions/Inscriptions.vue */ "./resources/js/components/course/inscriptions/Inscriptions.vue");
 /* harmony import */ var _syllabus_Syllabus_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./syllabus/Syllabus.vue */ "./resources/js/components/course/syllabus/Syllabus.vue");
+/* harmony import */ var _calendar_Calendar_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./calendar/Calendar.vue */ "./resources/js/components/course/calendar/Calendar.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -5442,47 +5443,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //componente tabs
+
 
 
 
@@ -5495,7 +5457,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     Tab: _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     Testimonys: _testimonys_Testimonys_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     Inscriptions: _inscriptions_Inscriptions_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Syllabus: _syllabus_Syllabus_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    Syllabus: _syllabus_Syllabus_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Calendar: _calendar_Calendar_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   data: function data() {
     return {
@@ -5508,6 +5471,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       }],
       inscription: {},
+      calendar: {},
       syllabus: [{
         title_syllabus: '',
         description_syllabus: '',
@@ -5539,7 +5503,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   url: _this.url,
                   testimony: _this.testimony,
                   inscription: _this.inscription,
-                  syllabus: _this.syllabus
+                  syllabus: _this.syllabus,
+                  calendar: _this.calendar
                 }).then(function (response) {
                   currentObj.output = response.data;
                   console.log(currentObj.output);
@@ -5661,6 +5626,122 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     details: function details(title) {
       window.location = "/courses/".concat(title);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/calendar/Calendar.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/calendar/Calendar.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "Calendar",
+  data: function data() {
+    return {};
+  },
+  props: {
+    calendar: {
+      type: Object,
+      //default: () => '',
+      "default": function _default() {
+        return {
+          startDay: '',
+          endDay: '',
+          startTime: '',
+          endTime: '',
+          modality: '',
+          duration: '',
+          syllabus: ''
+        };
+      }
     }
   }
 });
@@ -30084,6 +30165,45 @@ component.options.__file = "resources/js/components/course/ViewCourses.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/course/calendar/Calendar.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/course/calendar/Calendar.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Calendar_vue_vue_type_template_id_2f8db3e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Calendar.vue?vue&type=template&id=2f8db3e6&scoped=true& */ "./resources/js/components/course/calendar/Calendar.vue?vue&type=template&id=2f8db3e6&scoped=true&");
+/* harmony import */ var _Calendar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Calendar.vue?vue&type=script&lang=js& */ "./resources/js/components/course/calendar/Calendar.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Calendar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Calendar_vue_vue_type_template_id_2f8db3e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Calendar_vue_vue_type_template_id_2f8db3e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "2f8db3e6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/course/calendar/Calendar.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/course/inscriptions/Inscriptions.vue":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/course/inscriptions/Inscriptions.vue ***!
@@ -30374,6 +30494,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/course/calendar/Calendar.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/course/calendar/Calendar.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Calendar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Calendar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/calendar/Calendar.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Calendar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/course/inscriptions/Inscriptions.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/components/course/inscriptions/Inscriptions.vue?vue&type=script&lang=js& ***!
@@ -30569,6 +30705,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ViewCourses_vue_vue_type_template_id_8d05716c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ViewCourses_vue_vue_type_template_id_8d05716c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ViewCourses.vue?vue&type=template&id=8d05716c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/ViewCourses.vue?vue&type=template&id=8d05716c&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/course/calendar/Calendar.vue?vue&type=template&id=2f8db3e6&scoped=true&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/course/calendar/Calendar.vue?vue&type=template&id=2f8db3e6&scoped=true& ***!
+  \*********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Calendar_vue_vue_type_template_id_2f8db3e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Calendar_vue_vue_type_template_id_2f8db3e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Calendar_vue_vue_type_template_id_2f8db3e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Calendar.vue?vue&type=template&id=2f8db3e6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/calendar/Calendar.vue?vue&type=template&id=2f8db3e6&scoped=true&");
 
 
 /***/ }),
@@ -30779,145 +30932,20 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", {}, [
-                _c("div", {}, [_c("h5", [_vm._v("calendar")])]),
-                _vm._v(" "),
-                _c("div", { staticClass: "d-flex" }, [
-                  _c("div", { staticClass: "w-100" }, [
-                    _c(
-                      "label",
-                      { staticClass: "form-label", attrs: { for: "duration" } },
-                      [_vm._v("start")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.startCalendar,
-                          expression: "startCalendar",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "date" },
-                      domProps: { value: _vm.startCalendar },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.startCalendar = $event.target.value
-                        },
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "w-100" }, [
-                    _c(
-                      "label",
-                      { staticClass: "form-label", attrs: { for: "duration" } },
-                      [_vm._v("End")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.endCalendar,
-                          expression: "endCalendar",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "date" },
-                      domProps: { value: _vm.endCalendar },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.endCalendar = $event.target.value
-                        },
-                      },
-                    }),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", {}, [
-                _c("div", {}, [_c("h5", [_vm._v("Time")])]),
-                _vm._v(" "),
-                _c("div", { staticClass: "d-flex" }, [
-                  _c("div", { staticClass: "w-100" }, [
-                    _c(
-                      "label",
-                      { staticClass: "form-label", attrs: { for: "time" } },
-                      [_vm._v("Start")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.startTime,
-                          expression: "startTime",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "time" },
-                      domProps: { value: _vm.startTime },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.startTime = $event.target.value
-                        },
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "w-100" }, [
-                    _c(
-                      "label",
-                      { staticClass: "form-label", attrs: { for: "time" } },
-                      [_vm._v("End")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.endTime,
-                          expression: "endTime",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "time" },
-                      domProps: { value: _vm.endTime },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.endTime = $event.target.value
-                        },
-                      },
-                    }),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
               _c(
                 "div",
-                {},
-                [_c("Syllabus", { attrs: { syllabus: _vm.syllabus } })],
+                { staticClass: "pt-3" },
+                [_c("Calendar", { attrs: { calendar: _vm.calendar } })],
                 1
               ),
             ]),
+            _vm._v(" "),
+            _c(
+              "Tab",
+              { attrs: { title: "Temario" } },
+              [_c("Syllabus", { attrs: { syllabus: _vm.syllabus } })],
+              1
+            ),
             _vm._v(" "),
             _c(
               "Tab",
@@ -31114,6 +31142,273 @@ var render = function () {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/calendar/Calendar.vue?vue&type=template&id=2f8db3e6&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/calendar/Calendar.vue?vue&type=template&id=2f8db3e6&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "content_testimony_principal " }, [
+    _c("div", { staticClass: "card text-center" }, [
+      _c("div", { staticClass: "card p-2" }, [
+        _vm._v("\n            Otros datos del curso\n        "),
+      ]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2 d-flex" }, [
+          _c("div", { staticClass: "w-100" }, [
+            _c(
+              "label",
+              { staticClass: "form-label", attrs: { for: "duration" } },
+              [_vm._v("start")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.calendar.startDay,
+                  expression: "calendar.startDay",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "date" },
+              domProps: { value: _vm.calendar.startDay },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.calendar, "startDay", $event.target.value)
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-100" }, [
+            _c(
+              "label",
+              { staticClass: "form-label", attrs: { for: "duration" } },
+              [_vm._v("End")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.calendar.endDay,
+                  expression: "calendar.endDay",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "date" },
+              domProps: { value: _vm.calendar.endDay },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.calendar, "endDay", $event.target.value)
+                },
+              },
+            }),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2 d-flex" }, [
+          _c("div", { staticClass: "w-100" }, [
+            _c("label", { staticClass: "form-label", attrs: { for: "time" } }, [
+              _vm._v("Start"),
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.calendar.startTime,
+                  expression: "calendar.startTime",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "time" },
+              domProps: { value: _vm.calendar.startTime },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.calendar, "startTime", $event.target.value)
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-100" }, [
+            _c("label", { staticClass: "form-label", attrs: { for: "time" } }, [
+              _vm._v("End"),
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.calendar.endTime,
+                  expression: "calendar.endTime",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "time" },
+              domProps: { value: _vm.calendar.endTime },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.calendar, "endTime", $event.target.value)
+                },
+              },
+            }),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-2" }, [
+        _c("div", { staticClass: "d-flex" }, [
+          _c("div", { staticClass: "w-100" }, [
+            _c(
+              "label",
+              { staticClass: "form-label", attrs: { for: "title" } },
+              [_vm._v("modality")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.calendar.modality,
+                  expression: "calendar.modality",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Titulo del curso" },
+              domProps: { value: _vm.calendar.modality },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.calendar, "modality", $event.target.value)
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-100" }, [
+            _c(
+              "label",
+              { staticClass: "form-label", attrs: { for: "title" } },
+              [_vm._v("Duration")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.calendar.duration,
+                  expression: "calendar.duration",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Duración del curso" },
+              domProps: { value: _vm.calendar.duration },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.calendar, "duration", $event.target.value)
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", {}, [
+          _c("label", { staticClass: "form-label", attrs: { for: "title" } }, [
+            _vm._v("Syllabus"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.calendar.syllabus,
+                expression: "calendar.syllabus",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "url",
+              placeholder: "Ingrese la Url para descargar el temario",
+            },
+            domProps: { value: _vm.calendar.syllabus },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.calendar, "syllabus", $event.target.value)
+              },
+            },
+          }),
+        ]),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", {}, [_c("h5", [_vm._v("calendar")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", {}, [_c("h5", [_vm._v("Time")])])
+  },
+]
 render._withStripped = true
 
 

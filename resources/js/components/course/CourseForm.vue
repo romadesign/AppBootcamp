@@ -30,59 +30,19 @@
                   placeholder="www.google.com "
                   v-model="url">
                 </div>
-                <div class="">
-                  <div class="">
-                    <h5>calendar</h5>
-                  </div>
-                  <div class="d-flex">
-                    <div class="w-100">
-                      <label for="duration" class="form-label">start</label>
-                      <input
-                      type="date"
-                      class="form-control"
-                      v-model="startCalendar">
-                    </div>
-                    <div class="w-100">
-                      <label for="duration" class="form-label">End</label>
-                      <input
-                      type="date"
-                      class="form-control"
-                      v-model="endCalendar">
-                    </div>
-                  </div>
-                </div>
-                <div class="">
-                  <div class="">
-                    <h5>Time</h5>
-                  </div>
-                  <div class="d-flex">
-                    <div class="w-100">
-                      <label for="time" class="form-label">Start</label>
-                      <input
-                      type="time"
-                      class="form-control"
-                      v-model="startTime">
-                    </div>
-                    <div class="w-100">
-                      <label for="time" class="form-label">End</label>
-                      <input
-                      type="time"
-                      class="form-control"
-                      v-model="endTime">
-                    </div>
-                  </div>
-                </div>
-                <div class="">
-                    <Syllabus :syllabus="syllabus"  />
+                <div class="pt-3">
+                    <Calendar :calendar="calendar" />
                 </div>
               </Tab>
-               <Tab title="Testimonios">
+              <Tab title="Temario">
+                <Syllabus :syllabus="syllabus"  />
+              </Tab>
+              <Tab title="Testimonios">
                  <Testimonys :testimony="testimony"  />
-               </Tab>
-               <Tab title="Inscripciones">
+              </Tab>
+              <Tab title="Inscripciones">
                  <Inscriptions :inscription="inscription" />
-               </Tab>
-
+              </Tab>
             </Tabs>
         </div>
     </div>
@@ -96,6 +56,7 @@ import Tab from "./tabs/Tab.vue";
 import Testimonys from "./testimonys/Testimonys.vue";
 import Inscriptions from "./inscriptions/Inscriptions.vue";
 import Syllabus from "./syllabus/Syllabus.vue"
+import Calendar from "./calendar/Calendar.vue"
 
     export default {
       name: "course-form",
@@ -105,6 +66,7 @@ import Syllabus from "./syllabus/Syllabus.vue"
          Testimonys,
          Inscriptions,
          Syllabus,
+         Calendar,
       },
       data(){
         return {
@@ -117,6 +79,7 @@ import Syllabus from "./syllabus/Syllabus.vue"
                 //picture_testimony: 'https://images.vexels.com/media/users/3/179969/isolated/lists/da44cc8348af09adfef0b0fa2fe249ce-imagen-de-mariquita-plana.png',
           }],
           inscription: {},
+          calendar: {},
           syllabus: [
             {
               title_syllabus: '',
@@ -142,6 +105,7 @@ import Syllabus from "./syllabus/Syllabus.vue"
               testimony: this.testimony,
               inscription: this.inscription,
               syllabus: this.syllabus,
+              calendar: this.calendar,
             })
             .then(function (response) {
               currentObj.output = response.data;
