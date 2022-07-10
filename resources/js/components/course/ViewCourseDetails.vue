@@ -15,12 +15,23 @@
     <span>  {{course.syllabus}}</span>
 
     <div class="p-2 content-testimony" v-for="(tema, t) in course.syllabus" :key="tema.t">
-      <span> title: {{tema.title_syllabus}}</span> <br>
+      <span> {{tema.title_syllabus}}</span> <br>
       <span> description:  {{tema.description_syllabus}}</span> <br>
       <div class=""  v-for="(sub, s) in tema.sub_syllabus" :key="sub.s">
         <span> sub temario title: {{sub.sub_title_syllabus}}</span> <br>
         <span> sub temario description: {{sub.sub_description_syllabus}}</span> <br>
       </div>
+    </div>
+
+    <div class="">
+      <span> {{course.calendar}}</span> <br>
+      <span> {{course.calendar.startDay}}</span> <br>
+      <span> {{course.calendar.endDay}}</span> <br>
+      <span> {{course.calendar.startTime}}</span> <br>
+      <span> {{course.calendar.endTime}}</span> <br>
+      <span> {{course.calendar.duration}}</span> <br>
+      <span> {{course.calendar.modality}}</span> <br>
+      <span> {{course.calendar.syllabus}}</span> <br>
     </div>
 
   </div>

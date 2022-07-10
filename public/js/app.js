@@ -5571,6 +5571,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ViewCourseDetails",
   data: function data() {
@@ -31041,7 +31052,7 @@ var render = function () {
           "div",
           { key: tema.t, staticClass: "p-2 content-testimony" },
           [
-            _c("span", [_vm._v(" title: " + _vm._s(tema.title_syllabus))]),
+            _c("span", [_vm._v(" " + _vm._s(tema.title_syllabus))]),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
@@ -31075,6 +31086,40 @@ var render = function () {
           2
         )
       }),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("span", [_vm._v(" " + _vm._s(_vm.course.calendar))]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [_vm._v(" " + _vm._s(_vm.course.calendar.startDay))]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [_vm._v(" " + _vm._s(_vm.course.calendar.endDay))]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [_vm._v(" " + _vm._s(_vm.course.calendar.startTime))]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [_vm._v(" " + _vm._s(_vm.course.calendar.endTime))]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [_vm._v(" " + _vm._s(_vm.course.calendar.duration))]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [_vm._v(" " + _vm._s(_vm.course.calendar.modality))]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [_vm._v(" " + _vm._s(_vm.course.calendar.syllabus))]),
+        _vm._v(" "),
+        _c("br"),
+      ]),
     ],
     2
   )
