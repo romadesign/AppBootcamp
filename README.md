@@ -92,3 +92,33 @@ sail npm run dev
 sail mysql
 
 ```
+
+
+
+# Posibles soluciones
+Problemas con packaget
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+https://www.maravento.com/2017/07/dpkg-error-al-procesar-el-paquete.html
+
+Para un mejor repositorio del proyecto install
+php 7.4.29
+https://www.codegrepper.com/code-examples/php/apt+install+php7.4-mbstring+php7.4-zip+php7.4-xml
+
+composer  2,3,5
+https://getcomposer.org/download/
+
+arrancar proyecto en laravel
+
+composer install
+php artisan key:generate
+php artisan migrate
+
+//Para agregar los datos que estan en el archivo roletableseader y cree en la base de datos los roles
+php artisan migrate:refresh –seed
+
+laravel migratios reiniciar tablas
+https://www.ironwoods.es/blog/laravel/refrescar-base-de-datos
+
+arrancar proyecto con laravel sail
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+sail up ← arranca docker y laravel
