@@ -122,3 +122,6 @@ https://www.ironwoods.es/blog/laravel/refrescar-base-de-datos
 arrancar proyecto con laravel sail
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 sail up ← arranca docker y laravel
+
+Error database create
+https://laracasts.com/discuss/channels/servers/laravel-sail-no-dbdb-user-created
