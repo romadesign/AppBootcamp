@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-  <div class="row">
+
     <section class="content_general">
       <div class="sub_content row d-flex align-items-center justify-content-center">
         <div class="content_description col-md-6">
           <div class="content_description_style">
             <h1 class="fw-bold ">Buscamos mujeres y hombres que rompan los códigos</h1>
             <h2 class="fs-5">Las empresas necesitan nuevo talento digital. Ofrecen buenos salarios, contratos estables y desarrollo profesional</h2>
+            <button type="button" class="btn btn-success">Cursos</button>
             <div class="content_follow">
               <h4>Follow</h4>
               <div class="">
@@ -21,7 +21,7 @@
         </div>
         <div class="col-md-6">
           <div class="conten_img">
-            <img src="/image/programmers.jpg" alt="">
+            <img src="/image/img.svg" alt="">
           </div>
         </div>
         <div class="content_video">
@@ -29,11 +29,118 @@
         </div>
       </div>
     </section>
-    <section class="content_cards_general">
-      <div class="row d-flex justify-content-center">
-        <div class="">
-          <h3 class="fw-bold text-center p-3">Acepta el reto y participa</h3>
+    <section class="content_information">
+      <div class="row content_type_formation">
+        <div class="card desription_information">
+          <img src="/image/img1.svg" alt="">
+          <h3 class="fw-bold">Formato intensivo</h3>
+         <ul>
+            <li>Proyectos reales.</li>
+            <li>Las tecnologías demandadas por las empresas.</li>
+            <li>Basado en las demandas del mercado laboral.</li>
+            <li>Competencias técnicas y laborales.</li>
+          </ul>
         </div>
+        <div class="card desription_information">
+          <img src="/image/img2.svg" alt="">
+          <h3 class="fw-bold">Sin barreras</h3>
+         <ul>
+            <li>Formación gratuita de calidad.</li>
+            <li>Dirigida especialmente a personas con dificultades de inserción laboral.</li>
+            <li>Sin necesidad de conocimientos previos.</li>
+          </ul>
+        </div>
+        <div class="card desription_information">
+          <img src="/image/img3.svg" alt="">
+          <h3 class="fw-bold">Enfocada al empleo</h3>
+         <ul>
+            <li>Salida positiva del 100%.</li>
+            <li>Practicas en empresas del sector.</li>
+            <li>Seguimiento de los progresos.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="">
+        <div class="">
+          <h3 class="fw-bold text-center p-3">Nuestro cursos</h3>
+        </div>
+        <div class="content_courses">
+          <div class="card content_course">
+            <div>
+              <img src="/image/img3.svg" alt="">
+            </div>
+            <div>
+              <h4 class="fw-bold">Full Stack</h4>
+              <div>
+                <div>
+                  Modalidad: <span>Presencial</span> <br/>
+                  Duración: <span>570 Horas</span>
+                </div>
+                <div>
+                  Comienza: <span>2022-07-29</span> <br/>
+                  Termina: <span>2022-07-12</span>
+                </div>
+                <div>
+                  Hora: <span>12:17</span> am a  <span>24:17</span> pm
+                </div>
+              </div>
+              <button type="button" class="btn btn-success">Más información</button>
+            </div>
+          </div>
+          <div class="card content_course">
+            <div>
+              <img src="/image/img3.svg" alt="">
+            </div>
+            <div>
+              <h4 class="fw-bold">Full Stack</h4>
+              <div>
+                <div>
+                  Modalidad: <span>Presencial</span> <br/>
+                  Duración: <span>570 Horas</span>
+                </div>
+                <div>
+                  Comienza: <span>2022-07-29</span> <br/>
+                  Termina: <span>2022-07-12</span>
+                </div>
+                <div>
+                  Hora: <span>12:17</span> am a  <span>24:17</span> pm
+                </div>
+              </div>
+              <button type="button" class="btn btn-success">Más información</button>
+            </div>
+          </div>
+          <div class="card content_course">
+            <div>
+              <img src="/image/img3.svg" alt="">
+            </div>
+            <div>
+              <h4 class="fw-bold">Full Stack</h4>
+              <div>
+                <div>
+                  Modalidad: <span>Presencial</span> <br/>
+                  Duración: <span>570 Horas</span>
+                </div>
+                <div>
+                  Comienza: <span>2022-07-29</span> <br/>
+                  Termina: <span>2022-07-12</span>
+                </div>
+                <div>
+                  Hora: <span>12:17</span> am a  <span>24:17</span> pm
+                </div>
+              </div>
+              <button type="button" class="btn btn-success">Más información</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content_cards_general">
+      <div class="">
+          <h3 class="fw-bold text-center p-3">Acepta el reto y participa</h3>
+      </div>
+      <div class="row d-flex justify-content-center">
         <div class="card_content col-md-6">
           <h4>No importa</h4>
           <ul>
@@ -55,27 +162,5 @@
         </div>
       </div>
     </section>
-    <section>
-      <div class="">
-        <div class="">
-          Cursos
-        </div>
-      </div>
-    </section>
-    <section class="">
-      <div class="row">
-        <div class="col-md-4">
-          <h3 class="fw-bold">¡Sí, programar es para ti!</h3>
-          <span>Somos la ​primera red de escuelas digitales solidarias, inclusivas y gratuitas en España.
-Formamos a personas en situación de vulnerabilidad en las competencias más demandadas por las empresas del sector tecnológico combatiendo la brecha digital de género.</span>
-        </div>
-        <div class="col-md-8">
-          <div class="">
-            card
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
+
 @endsection
