@@ -11288,7 +11288,6 @@ textarea.form-control-lg {
 }
 
 
-
 /** new css*/
 .content_general {
   height: 75vh;
@@ -11377,9 +11376,67 @@ section.content_cards_general {
   grid-template-columns: 0.6fr 1fr;
   align-items: center;
   background: #f2f2f2;
+  gap: 1rem;
   padding: 1rem;
 }
 .card {
   border: 1px solid rgba(0, 0, 0, 0) !important;
   border-radius: 0.25rem;
+}
+
+.content_icons {
+  display: flex;
+  gap: 0.7rem;
+}
+.content_icons img{
+  width: 25px;
+}
+.content_import {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.conten_img img {
+  width: 100%;
+  display: flex;
+  margin: auto;
+}
+.content_follow {
+  position: absolute;
+  bottom: -180px;
+}
+
+@media (max-width: 780px) {
+  .content_courses{
+    display: block;
+  }
+  .content_course {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+  .content_type_formation{
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .content_follow {
+    position: inherit;
+    padding-top: 1rem;
+  }
+  .content_video {
+    position: inherit;
+  }
+}
+
+@media (max-width: 500px){
+  .content_import {
+    display: grid;
+    gap: 0;
+    justify-content: center;
+  }
+  .content_information {
+    padding-top: 11rem;
+  }
 }
