@@ -11,6 +11,9 @@
 
     @routes
 
+    <!-- fontawesone -->
+    <script src="https://kit.fontawesome.com/1b72e4ed05.js" crossorigin="anonymous"></script>
+    
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
