@@ -21,6 +21,7 @@ window.Vue = require('vue').default;
 
 Vue.component('CourseForm', require('./components/course/CourseForm.vue').default);
 Vue.component('ViewCourseDetails', require('./components/course/ViewCourseDetails.vue').default);
+Vue.component('ViewCourseEdit', require('./components/course/ViewCourseEdit.vue').default);
 Vue.component('ViewCourses', require('./components/course/ViewCourses.vue').default);
 Vue.component('CourseComponent', require('./components/course/CourseComponent.vue').default);
 

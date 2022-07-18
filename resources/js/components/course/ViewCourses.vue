@@ -6,6 +6,7 @@
             <h5 class="card-title">{{course.title}}</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
             <a @click="details(course.title)" class="btn btn-primary">Detalle</a>
+            <a @click="edit(course.title)" class="btn btn-primary">editar</a>
           </div>
         </div>
       </div>
@@ -26,6 +27,9 @@ export default {
   methods: {
     details(title){
       window.location = `/courses/${title}`;
+    },
+    edit(title){
+      window.location = `/courses/${title}/edit`;
     }
   }
 }

@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        <div class="row"
            <div class="row d-flex">
              <div class="form-group col-md-8">
                 <h1>Crear un nuevo curso</h1>

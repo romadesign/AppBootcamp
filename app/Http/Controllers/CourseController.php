@@ -40,8 +40,31 @@ class CourseController extends Controller
     }
   }
 
-   public function show(Course $course){
-     return view('courses.show', compact('course'));
+  public function show(Course $course){
+    return view('courses.show', compact('course'));
+  }
 
-   }
+  public function edit(Course $course) {
+    return view('courses.edit', compact('course'));
+  }
+
+  public function update(Request $request, $id) {
+    $user = auth()->user();
+    if ($user == null) {
+      return redirect('/login');
+    }else{
+      $course = Course::find($id);
+      $course->title = $request->get('title');
+      $course->url = $request->get('url');
+      $course->testimony = $request->get('testimony');
+      $course->inscription = $request->get('inscription');
+      $course->syllabus = $request->get('syllabus');
+      $course->calendar = $request->get('calendar');
+      $course->save();
+  
+      return response("edit $course->id");
+    }
+    // dd($course->calendar);
+    
+  }
 }

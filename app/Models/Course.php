@@ -38,4 +38,5 @@ class Course extends Model
     {
         return 'title';
     }
+
 }
