@@ -32,6 +32,7 @@
         </div>
       </div>
     </section>
+
     <section class="content_information">
       <div class="row content_type_formation">
         <div class="card shadow p-3 mb-5 bg-body rounded desription_information">
@@ -64,6 +65,7 @@
         </div>
       </div>
     </section>
+
     <section class="row content_cards_general">
       <div class="col-md-6">
         <h3 class="fw-bold p-3 text-center">Acepta el reto y participa</h3>
@@ -93,81 +95,14 @@
         </div>
       </div>
     </section>
+
     <section>
-      <div class="">
-        <div class="">
-          <h3 class="fw-bold text-center p-3">Nuestro cursos</h3>
-        </div>
-        <div class="content_courses">
-          <div class="card content_course shadow p-3 mb-5 rounded">
-            <div>
-              <img src="/image/img3.svg" alt="">
-            </div>
-            <div>
-              <h4 class="fw-bold">Full Stack</h4>
-              <div>
-                <div>
-                  Modalidad: <span>Presencial</span> <br/>
-                  Duración: <span>570 Horas</span>
-                </div>
-                <div>
-                  Comienza: <span>2022-07-29</span> <br/>
-                  Termina: <span>2022-07-12</span>
-                </div>
-                <div>
-                  Hora: <span>12:17</span> am a  <span>24:17</span> pm
-                </div>
-              </div>
-              <button type="button" class="btn btn-success">Más información</button>
-            </div>
-          </div>
-          <div class="card content_course shadow p-3 mb-5 rounded">
-            <div>
-              <img src="/image/img3.svg" alt="">
-            </div>
-            <div>
-              <h4 class="fw-bold">Full Stack</h4>
-              <div>
-                <div>
-                  Modalidad: <span>Presencial</span> <br/>
-                  Duración: <span>570 Horas</span>
-                </div>
-                <div>
-                  Comienza: <span>2022-07-29</span> <br/>
-                  Termina: <span>2022-07-12</span>
-                </div>
-                <div>
-                  Hora: <span>12:17</span> am a  <span>24:17</span> pm
-                </div>
-              </div>
-              <button type="button" class="btn btn-success">Más información</button>
-            </div>
-          </div>
-          <div class="card content_course shadow p-3 mb-5 rounded">
-            <div>
-              <img src="/image/img3.svg" alt="">
-            </div>
-            <div>
-              <h4 class="fw-bold">Full Stack</h4>
-              <div>
-                <div>
-                  Modalidad: <span>Presencial</span> <br/>
-                  Duración: <span>570 Horas</span>
-                </div>
-                <div>
-                  Comienza: <span>2022-07-29</span> <br/>
-                  Termina: <span>2022-07-12</span>
-                </div>
-                <div>
-                  Hora: <span>12:17</span> am a  <span>24:17</span> pm
-                </div>
-              </div>
-              <button type="button" class="btn btn-success">Más información</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!--Courses components-->
+      <course-component :courses="{{ $courses }}" />
     </section>
+
+
+    
    
   </div>
 </div>

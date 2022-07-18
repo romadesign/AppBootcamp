@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 
-
-class HomeController extends Controller
+class Welcome extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $courses =  Course::all();
+		return view('welcome', compact('courses'));
     }
-    
 }

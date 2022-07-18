@@ -1,7 +1,6 @@
 <template>
   <div class="row">
-      {{courses}}
-      <div class="col-sm-6" v-for="(course, c) in courses" :key="course.c">
+      <div class="col-sm-6" v-for="(course, c) in courses" :key="c">
         <div class="card" >
           <div class="card-body">
             <h5 class="card-title">{{course.title}}</h5>
@@ -15,7 +14,7 @@
 <script>
 export default {
   name: "ViewCourses",
-  data: () => ({
+  data: () => ({  
 
   }),
   mounted() {
