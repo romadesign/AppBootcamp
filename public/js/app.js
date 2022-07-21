@@ -5889,6 +5889,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ViewCourses",
   data: function data() {
@@ -5916,6 +5919,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         //handle failure
         alert('mal');
+        console.log(error);
       });
     }
   }
@@ -33355,18 +33359,20 @@ var render = function () {
                 _vm._v(" "),
                 _vm.user
                   ? _c("p", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-success",
-                          on: {
-                            click: function ($event) {
-                              return _vm.edit(course.title)
+                      _vm.user.id === course.user_id
+                        ? _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-success",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.edit(course.title)
+                                },
+                              },
                             },
-                          },
-                        },
-                        [_vm._v("editar")]
-                      ),
+                            [_vm._v("editar")]
+                          )
+                        : _vm._e(),
                       _vm._v(" "),
                       _c(
                         "a",
