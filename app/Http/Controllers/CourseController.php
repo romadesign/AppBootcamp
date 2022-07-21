@@ -10,7 +10,7 @@ class CourseController extends Controller
   public function index()
 	{
 		$courses =  Course::all();
-		return view('courses.index', compact('courses'));
+        return view('courses.index', compact('courses'));
 	}
 
   public function create(){
@@ -61,10 +61,19 @@ class CourseController extends Controller
       $course->syllabus = $request->get('syllabus');
       $course->calendar = $request->get('calendar');
       $course->save();
-  
+
       return response("edit $course->id");
     }
-    // dd($course->calendar);
-    
+  }
+
+  public function destroy($id) {
+      $user = auth()->user()->id;
+      $course = Course::find($id);
+      $courseUser = $course->user_id;
+      if($courseUser == $user){
+        return Course::destroy($id);
+      }else{
+        return redirect('/');
+      }
   }
 }

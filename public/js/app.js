@@ -5884,6 +5884,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ViewCourses",
   data: function data() {
@@ -5891,9 +5896,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log(this.courses);
+    console.log(this.user);
   },
   props: {
-    courses: []
+    courses: [],
+    user: {}
   },
   methods: {
     details: function details(title) {
@@ -5901,6 +5908,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     edit: function edit(title) {
       window.location = "/courses/".concat(title, "/edit");
+    },
+    delet: function delet(id) {
+      console.log(id);
+      axios["delete"](route("courses.destroy", id), {}).then(function (response) {
+        alert('bien');
+      })["catch"](function (error) {
+        //handle failure
+        alert('mal');
+      });
     }
   }
 });
@@ -33319,29 +33335,54 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c(
-              "a",
+              "div",
               {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function ($event) {
-                    return _vm.details(course.title)
-                  },
-                },
+                staticClass: "d-flex justify-content-center align-items-center",
               },
-              [_vm._v("Detalle")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function ($event) {
-                    return _vm.edit(course.title)
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function ($event) {
+                        return _vm.details(course.title)
+                      },
+                    },
                   },
-                },
-              },
-              [_vm._v("editar")]
+                  [_vm._v("Detalle")]
+                ),
+                _vm._v(" "),
+                _vm.user
+                  ? _c("p", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-success",
+                          on: {
+                            click: function ($event) {
+                              return _vm.edit(course.title)
+                            },
+                          },
+                        },
+                        [_vm._v("editar")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger",
+                          on: {
+                            click: function ($event) {
+                              return _vm.delet(course.id)
+                            },
+                          },
+                        },
+                        [_vm._v("Eliminar")]
+                      ),
+                    ])
+                  : _vm._e(),
+              ]
             ),
           ]),
         ]),

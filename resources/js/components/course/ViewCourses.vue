@@ -5,8 +5,13 @@
           <div class="card-body">
             <h5 class="card-title">{{course.title}}</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a @click="details(course.title)" class="btn btn-primary">Detalle</a>
-            <a @click="edit(course.title)" class="btn btn-primary">editar</a>
+            <div class="d-flex justify-content-center align-items-center">
+                <a @click="details(course.title)" class="btn btn-primary">Detalle</a>
+                <p  v-if="user">
+                    <a @click="edit(course.title)" class="btn btn-success">editar</a>
+                    <a @click="delet(course.id)" class="btn btn-danger">Eliminar</a>
+                </p>
+            </div>
           </div>
         </div>
       </div>
@@ -15,14 +20,16 @@
 <script>
 export default {
   name: "ViewCourses",
-  data: () => ({  
+  data: () => ({
 
   }),
   mounted() {
     console.log(this.courses)
+    console.log(this.user)
   },
   props: {
-    courses: []
+    courses: [],
+    user: {}
   },
   methods: {
     details(title){
@@ -30,6 +37,18 @@ export default {
     },
     edit(title){
       window.location = `/courses/${title}/edit`;
+    },
+    delet(id){
+      console.log(id)
+        axios.delete(route(`courses.destroy`, id), {
+        })
+        .then( response => {
+        alert('bien')
+        })
+        .catch( error => {
+        //handle failure
+        alert('mal')
+        })
     }
   }
 }
