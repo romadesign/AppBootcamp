@@ -45,7 +45,14 @@ class CourseController extends Controller
   }
 
   public function edit(Course $course) {
-    return view('courses.edit', compact('course'));
+    $user = auth()->user();
+    if ($user == null) {
+        return redirect('/login');
+    }else{
+      if($user->id == $course->user_id){
+          return view('courses.edit', compact('course'));
+      }
+    }
   }
 
   public function update(Request $request, $id) {

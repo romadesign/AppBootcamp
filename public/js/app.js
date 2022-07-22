@@ -5889,17 +5889,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ViewCourses",
   data: function data() {
     return {};
   },
-  mounted: function mounted() {
-    console.log(this.courses);
-    console.log(this.user);
+  mounted: function mounted() {// console.log(this.courses)
+    // console.log(this.user)
   },
   props: {
     courses: [],
@@ -5909,8 +5905,13 @@ __webpack_require__.r(__webpack_exports__);
     details: function details(title) {
       window.location = "/courses/".concat(title);
     },
-    edit: function edit(title) {
-      window.location = "/courses/".concat(title, "/edit");
+    edit: function edit(title, user_id) {
+      if (this.$props.user.id === user_id) {
+        window.location = "/courses/".concat(title, "/edit");
+      } else {
+        console.log('estas tratando de editar un curso que no es tuyo');
+        window.location = "/courses";
+      }
     },
     delet: function delet(id) {
       console.log(id);
@@ -6380,10 +6381,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/Testimonys.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/Testimonys.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6403,6 +6404,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'FieldResumeImage',
+  props: {
+    image: {
+      required: true
+    }
+  },
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {
+    console.log(this.$props.image + 'sad');
+  },
+  methods: {
+    previewImage: function previewImage(event) {
+      var _this = this;
+
+      console.log(this.image);
+      var input = event.target;
+
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          //Indicando que la imagen sea distitan
+          if (!_this.image[i]) {
+            _this.image[i] = e.target.result;
+          }
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/Testimonys.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/Testimonys.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FieldTestimonyImage_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FieldTestimonyImage.vue */ "./resources/js/components/course/testimonys/FieldTestimonyImage.vue");
 //
 //
 //
@@ -6426,7 +6477,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//import FieldTestimonyImage from './FieldTestimonyImage.vue'
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Testimonys",
   components: {//FieldTestimonyImage,
@@ -6438,7 +6503,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    return {};
+    return {
+      image: ''
+    };
   },
   mounted: function mounted() {
     //do something after mounting vue instance
@@ -6455,34 +6522,23 @@ __webpack_require__.r(__webpack_exports__);
     remove: function remove(i) {
       this.testimony.splice(i, 1);
     },
-    previewImage: function previewImage(event) {
+    previewImage: function previewImage(e, index) {
       var _this = this;
 
-      var input = event.target;
+      var input = e.target;
 
       if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        var reader = new FileReader(); //capturando img base64 (e.target.result y almacenado)
 
         reader.onload = function (e) {
-          for (var i = 0; i < _this.testimony.length; i++) {
-            //Indicando que la imagen sea distitan
-            if (!_this.testimony[i].picture_testimony) {
-              _this.testimony[i].picture_testimony = e.target.result;
-            }
-          }
+          //index = testimonio_id
+          _this.testimony[index].picture_testimony = e.target.result;
         };
 
         reader.readAsDataURL(input.files[0]);
       }
     }
-  } //<div class="file-upload-form">
-  //     Upload an image file:
-  //     <input type="file" @change="previewImage($event)" accept="image/*">
-  // </div>
-  // <div class="image-preview">
-  //   <img height="200px" width="200px" class="preview" :src="testimony[i].picture_testimony">
-  // </div>
-
+  }
 });
 
 /***/ }),
@@ -6994,21 +7050,17 @@ __webpack_require__.r(__webpack_exports__);
     remove: function remove(i) {
       this.testimony.splice(i, 1);
     },
-    previewImage: function previewImage(event) {
+    previewImage: function previewImage(e, index) {
       var _this = this;
 
-      var input = event.target;
+      var input = e.target;
 
       if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        var reader = new FileReader(); //capturando img base64 (e.target.result y almacenado)
 
         reader.onload = function (e) {
-          for (var i = 0; i < _this.testimony.length; i++) {
-            //Indicando que la imagen sea distitan
-            if (!_this.testimony[i].picture_testimony) {
-              _this.testimony[i].picture_testimony = e.target.result;
-            }
-          }
+          //index = testimonio_id
+          _this.testimony[index].picture_testimony = e.target.result;
         };
 
         reader.readAsDataURL(input.files[0]);
@@ -12220,6 +12272,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-link[data-v-8cf34934] {\n  cursor: pointer;\n}\n.nav-link[data-v-8cf34934]:hover {\n  color: #464646;\n}\n.is-active[data-v-8cf34934] {\n  color: #464646;\n  font-weight: 600;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\nimg[data-v-80141c6c] {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30725,6 +30801,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldTestimonyImage_vue_vue_type_style_index_0_id_80141c6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldTestimonyImage_vue_vue_type_style_index_0_id_80141c6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldTestimonyImage_vue_vue_type_style_index_0_id_80141c6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/Testimonys.vue?vue&type=style&index=0&id=10802386&scoped=true&lang=css&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/Testimonys.vue?vue&type=style&index=0&id=10802386&scoped=true&lang=css& ***!
@@ -31591,6 +31697,47 @@ component.options.__file = "resources/js/components/course/tabs/Tabs.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/course/testimonys/FieldTestimonyImage.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/course/testimonys/FieldTestimonyImage.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FieldTestimonyImage_vue_vue_type_template_id_80141c6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FieldTestimonyImage.vue?vue&type=template&id=80141c6c&scoped=true& */ "./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=template&id=80141c6c&scoped=true&");
+/* harmony import */ var _FieldTestimonyImage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FieldTestimonyImage.vue?vue&type=script&lang=js& */ "./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=script&lang=js&");
+/* harmony import */ var _FieldTestimonyImage_vue_vue_type_style_index_0_id_80141c6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css& */ "./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _FieldTestimonyImage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FieldTestimonyImage_vue_vue_type_template_id_80141c6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _FieldTestimonyImage_vue_vue_type_template_id_80141c6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "80141c6c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/course/testimonys/FieldTestimonyImage.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/course/testimonys/Testimonys.vue":
 /*!******************************************************************!*\
   !*** ./resources/js/components/course/testimonys/Testimonys.vue ***!
@@ -32089,6 +32236,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldTestimonyImage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FieldTestimonyImage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldTestimonyImage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/course/testimonys/Testimonys.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/course/testimonys/Testimonys.vue?vue&type=script&lang=js& ***!
@@ -32265,6 +32428,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Tabs_vue_vue_type_style_index_0_id_8cf34934_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Tabs.vue?vue&type=style&index=0&id=8cf34934&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/tabs/Tabs.vue?vue&type=style&index=0&id=8cf34934&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css&":
+/*!************************************************************************************************************************************!*\
+  !*** ./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldTestimonyImage_vue_vue_type_style_index_0_id_80141c6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=style&index=0&id=80141c6c&scoped=true&lang=css&");
 
 
 /***/ }),
@@ -32517,6 +32693,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tabs_vue_vue_type_template_id_8cf34934_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tabs_vue_vue_type_template_id_8cf34934_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Tabs.vue?vue&type=template&id=8cf34934&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/tabs/Tabs.vue?vue&type=template&id=8cf34934&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=template&id=80141c6c&scoped=true&":
+/*!**********************************************************************************************************************!*\
+  !*** ./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=template&id=80141c6c&scoped=true& ***!
+  \**********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldTestimonyImage_vue_vue_type_template_id_80141c6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldTestimonyImage_vue_vue_type_template_id_80141c6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldTestimonyImage_vue_vue_type_template_id_80141c6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FieldTestimonyImage.vue?vue&type=template&id=80141c6c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=template&id=80141c6c&scoped=true&");
 
 
 /***/ }),
@@ -32815,7 +33008,7 @@ var render = function () {
         _c(
           "Tabs",
           [
-            _c("Tab", { attrs: { selected: "true", title: "Inicio" } }, [
+            _c("Tab", { attrs: { title: "Inicio" } }, [
               _c("div", {}, [
                 _c(
                   "label",
@@ -32893,7 +33086,7 @@ var render = function () {
             _vm._v(" "),
             _c(
               "Tab",
-              { attrs: { title: "Testimonios" } },
+              { attrs: { selected: "true", title: "Testimonios" } },
               [_c("Testimonys", { attrs: { testimony: _vm.testimony } })],
               1
             ),
@@ -33357,22 +33550,20 @@ var render = function () {
                   [_vm._v("Detalle")]
                 ),
                 _vm._v(" "),
-                _vm.user
+                _vm.user && _vm.user.id === course.user_id
                   ? _c("p", [
-                      _vm.user.id === course.user_id
-                        ? _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-success",
-                              on: {
-                                click: function ($event) {
-                                  return _vm.edit(course.title)
-                                },
-                              },
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-success",
+                          on: {
+                            click: function ($event) {
+                              return _vm.edit(course.title, course.user_id)
                             },
-                            [_vm._v("editar")]
-                          )
-                        : _vm._e(),
+                          },
+                        },
+                        [_vm._v("editar")]
+                      ),
                       _vm._v(" "),
                       _c(
                         "a",
@@ -34200,6 +34391,50 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=template&id=80141c6c&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/FieldTestimonyImage.vue?vue&type=template&id=80141c6c&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "d-sm-inline-flex w-100" }, [
+    _c("div", { staticClass: "file-upload-form" }, [
+      _vm._v("\n      Upload an image file:\n      "),
+      _c("input", {
+        attrs: { type: "file", accept: "image/*" },
+        on: {
+          change: function ($event) {
+            return _vm.previewImage($event)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "image-preview" }, [
+      _c("img", {
+        staticClass: "preview",
+        attrs: { height: "200px", width: "200px", src: _vm.image },
+      }),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/Testimonys.vue?vue&type=template&id=10802386&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/course/testimonys/Testimonys.vue?vue&type=template&id=10802386&scoped=true& ***!
@@ -34320,22 +34555,23 @@ var render = function () {
                       attrs: { type: "file", accept: "image/*" },
                       on: {
                         change: function ($event) {
-                          return _vm.previewImage($event)
+                          return _vm.previewImage($event, i)
                         },
                       },
                     }),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "image-preview" }, [
-                    _c("img", {
-                      staticClass: "preview",
-                      attrs: {
-                        height: "200px",
-                        width: "200px",
-                        src: _vm.testimony[i].picture_testimony,
-                      },
-                    }),
-                  ]),
+                  !_vm.testimony[i].picture_testimony == ""
+                    ? _c("div", { staticClass: "image-preview" }, [
+                        _c("img", {
+                          staticClass: "preview",
+                          attrs: {
+                            width: "200px",
+                            src: _vm.testimony[i].picture_testimony,
+                          },
+                        }),
+                      ])
+                    : _vm._e(),
                 ]),
               ]),
               _vm._v(" "),
@@ -35297,7 +35533,7 @@ var render = function () {
                       attrs: { type: "file", accept: "image/*" },
                       on: {
                         change: function ($event) {
-                          return _vm.previewImage($event)
+                          return _vm.previewImage($event, i)
                         },
                       },
                     }),
@@ -35307,7 +35543,6 @@ var render = function () {
                     _c("img", {
                       staticClass: "preview",
                       attrs: {
-                        height: "200px",
                         width: "200px",
                         src: _vm.testimony[i].picture_testimony,
                       },

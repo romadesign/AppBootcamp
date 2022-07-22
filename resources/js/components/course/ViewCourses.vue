@@ -7,11 +7,8 @@
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
           <div class="d-flex justify-content-center align-items-center">
               <a @click="details(course.title)" class="btn btn-primary">Detalle</a>
-              <p v-if="user">
-                <a
-                v-if="user.id === course.user_id"
-					@click="edit(course.title)"
-					class="btn btn-success">editar</a>
+              <p  v-if="user && user.id === course.user_id">
+                <a @click="edit(course.title, course.user_id)" class="btn btn-success">editar</a>
                 <a @click="delet(course.id)" class="btn btn-danger">Eliminar</a>
               </p>
           </div>
@@ -27,8 +24,8 @@ export default {
 
   }),
   mounted() {
-    console.log(this.courses)
-    console.log(this.user)
+    // console.log(this.courses)
+    // console.log(this.user)
   },
   props: {
     courses: [],
@@ -38,8 +35,13 @@ export default {
     details(title){
       window.location = `/courses/${title}`;
     },
-    edit(title){
-      window.location = `/courses/${title}/edit`;
+    edit(title, user_id){
+      if(this.$props.user.id === user_id){
+        window.location = `/courses/${title}/edit`;
+      }else{
+        console.log('estas tratando de editar un curso que no es tuyo')
+        window.location = `/courses`;
+      }
     },
     delet(id){
       console.log(id)

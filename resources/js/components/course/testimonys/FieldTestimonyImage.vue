@@ -1,11 +1,11 @@
 <template>
-  <div class="d-sm-inline-flex w-100">
+  <div class="d-sm-inline-flex w-100" >
     <div class="file-upload-form">
         Upload an image file:
         <input type="file" @change="previewImage($event)" accept="image/*">
     </div>
     <div class="image-preview">
-      <img height="200px" width="200px" class="preview" :src="imagen">
+      <img height="200px" width="200px" class="preview" :src="image">
     </div>
   </div>
 </template>
@@ -16,30 +16,32 @@ export default {
   name: 'FieldResumeImage',
   props: {
       image: {
-        type: Array,
         required: true,
       },
   },
   data() {
     return {
-      imagen: this.image.picture_testimony
+
     };
   },
   mounted() {
-    console.log(this.image + 'sad')
+    console.log(this.$props.image + 'sad')
   },
   methods: {
-    previewImage(event) {
-       var input = event.target;
-       if (input.files && input.files[0]) {
-           var reader = new FileReader();
-           reader.onload = (e) => {
-               //Indicando que la imagen sea distitan
-                 this.image.picture_testimony = e.target.result;
+     previewImage(event) {
+         console.log(this.image)
+           var input = event.target;
+           if (input.files && input.files[0]) {
+               var reader = new FileReader();
+               reader.onload = (e) => {
+                   //Indicando que la imagen sea distitan
+                   if(!this.image[i]){
+                     this.image[i] = e.target.result;
+                   }
+               }
+               reader.readAsDataURL(input.files[0]);
            }
-           reader.readAsDataURL(input.files[0]);
-       }
-   }
+       },
   }
 
 };

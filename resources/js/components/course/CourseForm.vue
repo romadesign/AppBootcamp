@@ -12,7 +12,7 @@
            </div>
           <div class="mb-3">
             <Tabs>
-              <Tab selected="true" title="Inicio">
+              <Tab  title="Inicio">
                 <div class="">
                   <label for="title" class="form-label">Title</label>
                   <input
@@ -36,7 +36,7 @@
               <Tab title="Temario">
                 <Syllabus :syllabus="syllabus"  />
               </Tab>
-              <Tab title="Testimonios">
+              <Tab selected="true" title="Testimonios">
                  <Testimonys :testimony="testimony"  />
               </Tab>
               <Tab title="Inscripciones">
@@ -71,12 +71,14 @@ import Calendar from "./calendar/Calendar.vue"
         return {
           title: '',
           url: '',
-          testimony:[{
+          testimony:[
+            {
             title_testimony: 'test title',
             description_testimony: '',
             picture_testimony: '',
                 //picture_testimony: 'https://images.vexels.com/media/users/3/179969/isolated/lists/da44cc8348af09adfef0b0fa2fe249ce-imagen-de-mariquita-plana.png',
-          }],
+            }
+          ],
           inscription: {},
           calendar: {},
           syllabus: [

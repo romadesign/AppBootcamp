@@ -19,10 +19,10 @@
                 <div class="mb-3">
                   <div class="file-upload-form">
                      Upload an image file:
-                     <input type="file" @change="previewImage($event)" accept="image/*">
+                     <input type="file" @change="previewImage($event, i)" accept="image/*">
                  </div>
                  <div class="image-preview">
-                   <img height="200px" width="200px" class="preview" :src="testimony[i].picture_testimony">
+                   <img  width="200px" class="preview" :src="testimony[i].picture_testimony">
                  </div>
                 </div>
 
@@ -72,20 +72,17 @@ export default {
             this.testimony.splice(i, 1)
         },
 
-        previewImage(event) {
-           var input = event.target;
-           if (input.files && input.files[0]) {
-               var reader = new FileReader();
-               reader.onload = (e) => {
-                 for (var i = 0; i < this.testimony.length; i++) {
-                   //Indicando que la imagen sea distitan
-                   if(!this.testimony[i].picture_testimony){
-                     this.testimony[i].picture_testimony = e.target.result;
-                   }
-                 }
-               }
-               reader.readAsDataURL(input.files[0]);
-           }
+        previewImage(e, index) {
+            var input = e.target;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                //capturando img base64 (e.target.result y almacenado)
+                reader.onload = (e) => {
+                //index = testimonio_id
+                this.testimony[index].picture_testimony = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+          }
        }
     }
 
