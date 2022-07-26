@@ -66,6 +66,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 # To run the cloned repository, follow the steps below
 https://laravel.com/docs/8.x/sail#installing-composer-dependencies-for-existing-projects
 
+Uncomment the .env.copy or .env.example file
+
 ``` 
 docker run --rm \
     -u "$(id -u):$(id -g)" \
