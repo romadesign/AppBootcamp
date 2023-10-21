@@ -100,19 +100,20 @@ import Calendar from "./calendar/Calendar.vue"
         async submit() {
           try {
             let currentObj = this;
-            await axios.post(route("courses.store"),{
-              title: this.title,
-              url: this.url,
-              testimony: this.testimony,
-              inscription: this.inscription,
-              syllabus: this.syllabus,
-              calendar: this.calendar,
+            await axios.post("/coursescreate", {
+                title: this.title,
+                url: this.url,
+                testimony: this.testimony,
+                inscription: this.inscription,
+                syllabus: this.syllabus,
+                calendar: this.calendar,
             })
             .then(function (response) {
-              currentObj.output = response.data;
-              console.log(currentObj.output)
-              window.location = "/home";
+                currentObj.output = response.data;
+                console.log(currentObj.output);
+                window.location = "/home";
             })
+
            } catch (e) {
              console.log(e.response)
            }

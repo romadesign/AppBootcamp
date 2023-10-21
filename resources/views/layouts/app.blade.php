@@ -9,8 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    @routes
-
     <!-- fontawesone -->
     <script src="https://kit.fontawesome.com/1b72e4ed05.js" crossorigin="anonymous"></script>
 
